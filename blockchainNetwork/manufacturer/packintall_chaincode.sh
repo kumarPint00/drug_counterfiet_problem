@@ -1,3 +1,3 @@
 #!/bin/bash
-        docker exec cli-org1 scripts/create-drlchannel-packinstall.sh
+        docker exec cli-manufacturer scripts/create-common-packinstall.sh
         

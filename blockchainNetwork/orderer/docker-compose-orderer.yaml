@@ -1,20 +1,21 @@
      
 version: '2' 
 volumes:
-  orderer1.pharma-netwokr.com:
-  orderer2.pharma-netwokr.com:
-  orderer3.pharma-netwokr.com:
+  orderer1.pharma-network.com:
+  orderer2.pharma-network.com:
+  orderer3.pharma-network.com:
+
 networks:
   pharma:
 services:
-  orderer1.pharma-netwokr.com:
-    container_name: orderer1.pharma-netwokr.com
+  orderer1.pharma-network.com:
+    container_name: orderer1.pharma-network.com
     image: hyperledger/fabric-orderer
     environment:
       - FABRIC_LOGGING_SPEC=INFO
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
       - ORDERER_GENERAL_LOCALMSPID=ordererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
@@ -31,20 +32,20 @@ services:
     ports:
       - 7050:7050
     volumes:
-      - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/pharma-netwokr.com/orderers/orderer1.pharma-netwokr.com/msp:/var/hyperledger/orderer/msp
-      - ./crypto-config/ordererOrganizations/pharma-netwokr.com/orderers/orderer1.pharma-netwokr.com/tls/:/var/hyperledger/orderer/tls
-      - orderer1.pharma-netwokr.com:/var/hyperledger/production/orderer
+      - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/genesis.block
+      - ./crypto-config/ordererOrganizations/pharma-network.com/orderers/orderer1.pharma-network.com/msp:/var/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/pharma-network.com/orderers/orderer1.pharma-network.com/tls/:/var/hyperledger/orderer/tls
+      - orderer1.pharma-network.com:/var/hyperledger/production/orderer
     networks:
       - pharma
-  orderer2.pharma-netwokr.com:
-    container_name: orderer2.pharma-netwokr.com
+  orderer2.pharma-network.com:
+    container_name: orderer2.pharma-network.com
     image: hyperledger/fabric-orderer
     environment:
       - FABRIC_LOGGING_SPEC=INFO
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
       - ORDERER_GENERAL_LOCALMSPID=ordererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
@@ -61,20 +62,20 @@ services:
     ports:
       - 8050:7050
     volumes:
-      - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/pharma-netwokr.com/orderers/orderer2.pharma-netwokr.com/msp:/var/hyperledger/orderer/msp
-      - ./crypto-config/ordererOrganizations/pharma-netwokr.com/orderers/orderer2.pharma-netwokr.com/tls/:/var/hyperledger/orderer/tls
-      - orderer2.pharma-netwokr.com:/var/hyperledger/production/orderer
+      - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/genesis.block
+      - ./crypto-config/ordererOrganizations/pharma-network.com/orderers/orderer2.pharma-network.com/msp:/var/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/pharma-network.com/orderers/orderer2.pharma-network.com/tls/:/var/hyperledger/orderer/tls
+      - orderer2.pharma-network.com:/var/hyperledger/production/orderer
     networks:
       - pharma
-  orderer3.pharma-netwokr.com:
-    container_name: orderer3.pharma-netwokr.com
+  orderer3.pharma-network.com:
+    container_name: orderer3.pharma-network.com
     image: hyperledger/fabric-orderer
     environment:
       - FABRIC_LOGGING_SPEC=INFO
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
-      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/genesis.block
       - ORDERER_GENERAL_LOCALMSPID=ordererMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       - ORDERER_GENERAL_TLS_ENABLED=true
@@ -91,9 +92,9 @@ services:
     ports:
       - 9050:7050
     volumes:
-      - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-      - ./crypto-config/ordererOrganizations/pharma-netwokr.com/orderers/orderer3.pharma-netwokr.com/msp:/var/hyperledger/orderer/msp
-      - ./crypto-config/ordererOrganizations/pharma-netwokr.com/orderers/orderer3.pharma-netwokr.com/tls/:/var/hyperledger/orderer/tls
-      - orderer3.pharma-netwokr.com:/var/hyperledger/production/orderer
+      - ./channel-artifacts/genesis.block:/var/hyperledger/orderer/genesis.block
+      - ./crypto-config/ordererOrganizations/pharma-network.com/orderers/orderer3.pharma-network.com/msp:/var/hyperledger/orderer/msp
+      - ./crypto-config/ordererOrganizations/pharma-network.com/orderers/orderer3.pharma-network.com/tls/:/var/hyperledger/orderer/tls
+      - orderer3.pharma-network.com:/var/hyperledger/production/orderer
     networks:
       - pharma
